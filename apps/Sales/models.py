@@ -1,7 +1,7 @@
 from django.db import models
 import apps.User.models 
 from apps.Base.models import BaseModel, DetailsBaseModel
-import apps.Product.models 
+
 
 # Create your models here.
 class Tax(models.Model):
@@ -40,7 +40,6 @@ class Invoice(BaseModel):
 class InvoiceDetails(DetailsBaseModel):
     """Model definition for InvoiceDetails."""
     InvoiceId = models.ForeignKey(Invoice, on_delete=models.CASCADE)
-    #ProductId = models.ForeignKey(apps.Products.models.Product, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Detalle de Factura"

@@ -1,11 +1,12 @@
 from django.db import models
 from apps.User.models import Bussines, User
 from apps.Base.models import BaseModel, DetailsBaseModel
+ 
 # Create your models here.
 
 class Pushcase(BaseModel):
     """Model definition for Pushcase."""
-
+    
     PushcaseNumeber = models.CharField('Numero de Compra',max_length=50,unique=True,null=False,blank=False)
     EnterpriceId = models.ForeignKey(Bussines, on_delete=models.CASCADE)
     PushcaseDate = models.DateField('Fecha de Compra',auto_now=False, auto_now_add=False)
