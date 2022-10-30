@@ -14,14 +14,14 @@ class TaxSerializer(serializers.ModelSerializer):
 class InvoiceSerializer(serializers.ModelSerializer):
     
     EnterpriceId = serializers.StringRelatedField()
-    TaxId = serializers.StringRelatedField()
+    # TaxId = serializers.StringRelatedField()
     # CreatedBy = serializers.StringRelatedField()
     # ModifiyBy = serializers.StringRelatedField()
     # DeleteBy = serializers.StringRelatedField()
     
     class Meta:
         model = Invoice
-        exclude = ('IsDeleted','CreateAt','ModifiedAt','DeletedAt','Taxid','CreatedBy','ModifiyBy','DeleteBy','AmoutMin','AmountMax',)
+        exclude = ('state','CreateAt','ModifiedAt','DeletedAt','TaxId','CreatedBy','ModifiyBy','DeleteBy')
 
 class InvoiceDetailsSerializer(serializers.ModelSerializer):
     InvoiceId = serializers.StringRelatedField()

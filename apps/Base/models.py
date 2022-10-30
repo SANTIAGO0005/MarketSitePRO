@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class BaseModel(models.Model):
     id = models.AutoField(primary_key=True)
-    IsDeleted = models.BooleanField(default=True)
-    CreateAt = models.DateField('Fecha de Creacion',auto_now=False, auto_now_add=True)
-    ModifiedAt = models.DateField('Fecha de Modificacion',auto_now=True, auto_now_add=False)
-    DeletedAt = models.DateField('Fecha de Eliminacion',auto_now=True, auto_now_add=False)
+    state = models.BooleanField(default=True)
+    CreateAt = models.DateField(auto_now=False, auto_now_add=True)
+    ModifiedAt = models.DateField(auto_now=True, auto_now_add=False)
+    DeletedAt = models.DateField(auto_now=True, auto_now_add=False)
 
     class Meta:
         abstract = True
@@ -15,15 +15,15 @@ class BaseModel(models.Model):
 
 class DetailsBaseModel(models.Model):
 
-    CodeP = models.CharField(verbose_name='codigo del producto',max_length=50)
-    Desc =  models.CharField(verbose_name='Descripcion',max_length=50)
-    Quality =  models.IntegerField(verbose_name='Calidad')
-    PriceP = models.IntegerField(verbose_name='Precio del Producto')
-    CostP = models.IntegerField(verbose_name='Costo del Producto')
-    UnitP =  models.CharField(max_length=50)
-    Precentage = models.IntegerField(verbose_name='Porcentaje')
-    PrecentagePrice = models.IntegerField(verbose_name='Precio Porcentual')
-    Total = models.IntegerField()
+    CodeProduct = models.CharField(max_length=50,unique=True,null=True,blank=False,default=False)
+    Desc =  models.CharField(max_length=50, null=True)
+    quantity =  models.IntegerField(null=True,default=False)
+    PriceProduct = models.IntegerField(null=True,default=False)
+    CostProduct = models.IntegerField(null=True,default=False)
+    UnitProduct =  models.CharField(max_length=50,null=True,default=False)
+    Precentage = models.CharField(max_length=10,null=True)
+    PrecentagePrice = models.IntegerField(null=True)
+    Total = models.IntegerField(null=True)
 
     class Meta:
         abstract = True

@@ -11,5 +11,5 @@ class InventorySerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Inventory
-        exclude = ('IsDeleted','CreatedBy','ModifiyBy','DeleteBy')
+        exclude = ('CreatedBy','ModifiyBy','DeleteBy')
 

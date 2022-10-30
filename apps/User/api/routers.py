@@ -4,7 +4,7 @@ from apps.User.api.api import UserViewSet, BusinessWiewSet
 
 router = DefaultRouter()
 
-router.register('', UserViewSet, basename="user")
+router.register('User', UserViewSet, basename="user")
 router.register('Business', BusinessWiewSet)
 
 urlpatterns = router.urls

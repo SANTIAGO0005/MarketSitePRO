@@ -20,17 +20,17 @@ class CategoryProduct(models.Model):
 class Product(BaseModel):
     """Model definition for Product."""
     
-    CodeP = models.CharField('Codigo del producto',max_length=50,unique=True,null=False,blank=False)
-    NameP = models.CharField('Nombre del producto',max_length=50)
-    CategoryId = models.ForeignKey(CategoryProduct, on_delete=models.CASCADE,verbose_name='Categoria del Producto')
-    AmoutMin = models.IntegerField('Cantidad Minima')
-    AmountMax = models.IntegerField('Cantidad Maxima')
-    Price = models.IntegerField('Precio')
-    Cost = models.IntegerField('Costo')
-    Taxid = models.ForeignKey(apps.Sales.models.Tax, on_delete=models.CASCADE,verbose_name='Impuesto')
-    CreatedBy = models.ForeignKey(apps.User.models.User,related_name='Product_CreatedBy',on_delete=models.CASCADE)
-    ModifiyBy = models.ForeignKey(apps.User.models.User,related_name='Product_ModifiyBy',on_delete=models.CASCADE)
-    DeleteBy =  models.ForeignKey(apps.User.models.User,related_name='Product_DeleteBy',on_delete=models.CASCADE)
+    CodeProduct = models.CharField(max_length=50,unique=True,null=False,blank=False)
+    NameProduct = models.CharField(max_length=50,null=True,default=False)
+    CategoryId = models.ForeignKey(CategoryProduct, on_delete=models.CASCADE,null=True)
+    AmoutMin = models.IntegerField(null=True)
+    AmountMax = models.IntegerField(null=True)
+    PriceProduct = models.IntegerField(null=True,default=False)
+    CostProduct = models.IntegerField(null=True,default=False)
+    Taxid = models.ForeignKey(apps.Sales.models.Tax, on_delete=models.CASCADE,null=True)
+    CreatedBy = models.ForeignKey(apps.User.models.User,related_name='Product_CreatedBy',on_delete=models.CASCADE,null=True)
+    ModifiyBy = models.ForeignKey(apps.User.models.User,related_name='Product_ModifiyBy',on_delete=models.CASCADE,null=True)
+    DeleteBy =  models.ForeignKey(apps.User.models.User,related_name='Product_DeleteBy',on_delete=models.CASCADE,null=True)
     
 
     class Meta:
@@ -38,4 +38,4 @@ class Product(BaseModel):
             verbose_name_plural = 'productos'
 
     def __str__(self):
-        return f'{self.NameP}'
+        return f'{self.NameProduct}'

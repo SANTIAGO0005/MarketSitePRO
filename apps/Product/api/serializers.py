@@ -1,6 +1,5 @@
 from apps.Product.models import Product,CategoryProduct
 from rest_framework import serializers
-#from apps.Sales.api.serializers import TaxSerializer
 #from apps.User.api.serializers import UserListSerializer
 
 class CategoryProductSerializer(serializers.ModelSerializer):
@@ -19,7 +18,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        exclude = ('IsDeleted','CreateAt','ModifiedAt','DeletedAt','CreatedBy','ModifiyBy','DeleteBy','AmoutMin','AmountMax',) 
+        exclude = ('state','CreateAt','ModifiedAt','DeletedAt','CreatedBy','ModifiyBy','DeleteBy','AmoutMin','AmountMax',) 
     
     
     '''si necesitaramos validar una imagen esta forma nos conviene mas'''

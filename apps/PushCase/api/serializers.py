@@ -12,7 +12,7 @@ class PushcaseSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Pushcase
-        exclude = ('IsDeleted','CreateAt','ModifiedAt','DeletedAt','CreatedBy','ModifiyBy','DeleteBy')
+        exclude = ('state','CreateAt','ModifiedAt','DeletedAt','CreatedBy','ModifiyBy','DeleteBy')
 
 class PushcaseDetailSerializer(serializers.ModelSerializer):
     ProductId = serializers.StringRelatedField()
