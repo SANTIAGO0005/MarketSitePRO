@@ -3,15 +3,19 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [' https://api-marketsite.herokuapp.com/']
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'railway',
+        'USER': 'root',
+        'PASSWORD' :'J8laReDaFWifnDOlVwpA',
+        'HOST':'containers-us-west-28.railway.app',
+        'PORT': '6082'
     }
 }
 

@@ -1,1 +1,1 @@
-web: gunicorn MarketProSite
+web: gunicorn MarketProSite.wsgi --log-file
